@@ -37,7 +37,7 @@ else{
     }
     else if (a<0&&b<0){
         multiplication(a, b);
-        alert("а и b отрицательные, поэтому складываем!");
+        alert("а и b отрицательные, поэтому умножаем!");
     }
     else{
         addition(a, b);
