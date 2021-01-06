@@ -17,7 +17,7 @@ let mover = {
         let nextPosition = {
             x: player.x,
             y: player.y,
-        },
+        };
         switch (direction) {
             case 2:
                 nextPosition.y--;
