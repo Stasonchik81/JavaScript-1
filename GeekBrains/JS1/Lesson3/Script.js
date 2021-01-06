@@ -42,6 +42,7 @@ for(let i = 0; i<=9; console.log(i), i++){
 }
 */
 // Задание №4
+/*
 function repeat (myString){
     for (i = 1; i<=20; i++){
         console.log(myString.repeat(i));
@@ -50,5 +51,5 @@ function repeat (myString){
 let myString = '*';
 repeat(myString);
 
-
+*/
  
