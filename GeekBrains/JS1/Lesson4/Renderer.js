@@ -5,7 +5,8 @@ let renderer = {
             for(let col = 0; col<config.colsCount; col++){
                 this.map += 'x';
             }
-            this.map = '\n';
+            this.map += (player.x === col && player.y === row) ? 'o':'\n';
         }
+        console.log(this.map);
     }
-}
+};
