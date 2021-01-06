@@ -12,5 +12,28 @@ let mover = {
             }
             return direction;
         }
+    },
+    getNextPosition (direction) {
+        let nextPosition = {
+            x: player.x,
+            y: player.y,
+        },
+        switch (direction) {
+            case 2:
+                nextPosition.y--;
+                break;
+            case 8:
+                    nextPosition.y++;
+                break;
+            case 4:
+                nextPosition.x--;
+                break;
+            case 6:
+                nextPosition.x++;
+                break;
+            default:
+                break;
+        }
+        return nextPosition;
     }
 };
