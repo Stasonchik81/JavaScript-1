@@ -1,3 +1,6 @@
+/**
+ * Запуск игры
+ */
 let game = {
     startGame(){
         while(true){
