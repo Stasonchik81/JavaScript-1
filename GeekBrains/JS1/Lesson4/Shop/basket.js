@@ -40,6 +40,7 @@ let basket = {
         goodList.forEach(function(el){
             result += el.price;
         });
+        return result;
     },
 
 }
@@ -48,7 +49,7 @@ var x = basket.countTotalNumber(basket.goodList);
 var y = basket.countTotalPrice(basket.goodList);
 console.log(basket.goodList);
 console.log(x);
-//console.log(y);
+console.log(y);
 /*
 console.log(countBasketPrice(basket));
 function countBasketPrice(basket){
