@@ -15,48 +15,47 @@ let allProducts = [{name: "молоко", price: 38},
 
 let basket = {
     goodList: [],
-    putProduct(allProducts){
-        allProducts.forEach(function(el,ind) 
-        {
-            if (ind % 2 === 0){
-                el.count = 1;
-                basket.goodList.push(Object.assign({}, el));
-            }
-            else {
-                el.count = 2;
-                basket.goodList.push(Object.assign({}, el));
-            }
-        });     
+    putProduct(prod, count){
+        let idx = this.goodList.findIndex(function(el){
+            return el.name === prod.name;
+        });
+        if(idx === -1){
+            basket.goodList.push(Object.assign({}, prod));
+            this.goodList[this.goodList.length-1].count = count;
+        }
+        else{
+            basket.goodList[idx].count += count;
+        }     
     },
-    countTotalNumber(goodList){
-        result = 0;
-        goodList.forEach(function(el,ind){
+    countTotalNumber(){
+        let result = 0;
+        basket.goodList.forEach(function(el){
             result += el.count;
         });
         return result;
     },
-    countTotalPrice(goodList){
-        result = 0;
-        goodList.forEach(function(el){
-            result += el.price;
+    countTotalPrice(){
+        let result = 0;
+        basket.goodList.forEach(function(el){
+            result += el.price * el.count;
         });
         return result;
     },
 
 }
-basket.putProduct(allProducts);
-var x = basket.countTotalNumber(basket.goodList);
-var y = basket.countTotalPrice(basket.goodList);
+allProducts.forEach(function(el,ind) 
+{
+    if (ind % 2 === 0){
+        el.count = 1;
+        basket.putProduct(el, el.count);
+    }
+    else {
+        el.count = 2;
+        basket.putProduct(el, el.count);
+    }
+});
+var x = basket.countTotalNumber();
+var y = basket.countTotalPrice();
 console.log(basket.goodList);
 console.log(x);
 console.log(y);
-/*
-console.log(countBasketPrice(basket));
-function countBasketPrice(basket){
-    let totalPrice = 0;
-    basket.forEach(function(el){
-        totalPrice += el.price;
-     });
-     return totalPrice;
-}
-*/
