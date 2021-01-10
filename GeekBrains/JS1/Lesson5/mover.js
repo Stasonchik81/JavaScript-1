@@ -4,6 +4,8 @@ let mover = {
         if (this.isPositionEqual(player, newPosition)){
             return;
         }
+        //if(this.isPositionUnable(newPosition,))
+
         if (! this.canPlayerMakeStep(newPosition)){
             return;
         }
@@ -13,6 +15,15 @@ let mover = {
     },
     isPositionEqual(currentPos, newPos){
         return currentPos.x === newPos.x && currentPos.y === newPos.y;
+    },
+    isPositionUnable(){
+        let unableSquares = document.querySelectorAll(".black");
+        let unableSquare = {x:null, y:null}
+        for (let element of unableSquares) {
+            unableSquare.x  = element.getAttribute("data-x");
+            unableSquare.y = element.getAttribute("data-y");// доработать данную функцию!!!
+        //return newPos.x === unPos.x && newPos.y === unPos.y;
+        }
     },
 
     canPlayerMakeStep(newPosition){

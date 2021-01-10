@@ -3,6 +3,14 @@ let renderer = {
         let result = this.generateBoard();
         document.body.insertAdjacentHTML('afterbegin', result);
         this.renderUserPosition(player);
+        let i=0;
+        do {
+            this.renderUnableSquare();
+            i++;
+        }while(i<5)
+        
+        
+        
     },
     generateBoard(){
         let board = '';
@@ -27,5 +35,18 @@ let renderer = {
 
     clearUserPosition(){
         document.querySelector('.user').classList.remove('user');
+    },
+     
+    renderUnableSquare(){
+        let square = this.getUnableSquare();
+        square.classList.add('black');
+    },
+    getUnableSquare(){
+        let unableSquare = {
+            x:getRandomInRange(1, 9),
+            y:getRandomInRange(1, 9),
+        };
+        return document.querySelector(`[data-x="${unableSquare.x}"][data-y="${unableSquare.y}"]`);
     }
+    
 }
