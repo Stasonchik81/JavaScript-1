@@ -24,4 +24,8 @@ let renderer = {
         let square = this.getSquare(player);
         square.classList.add('user');
     },
+
+    clearUserPosition(){
+        document.querySelector('.user').classList.remove('user');
+    }
 }

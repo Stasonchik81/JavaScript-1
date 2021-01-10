@@ -1,0 +1,17 @@
+html{
+    background-color: #cfcfcf;
+
+}
+table {
+    border-collapse: collapse;
+    background: rgb(253, 202, 159);
+
+}
+.black {
+    background-color: rgb(54, 31, 11);
+}
+td {
+    width: 35px;
+    height: 35px;
+    border: 2px solid rgb(54, 31, 11);
+}
