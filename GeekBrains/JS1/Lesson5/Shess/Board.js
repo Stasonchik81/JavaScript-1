@@ -32,7 +32,7 @@ let Board = {
             for (let j = 2; j < 9; j=j+2){
                 let square = document.querySelector(`[data-x="${i}"][data-y="${j}"]`);
                 square.classList.add("black");
-                let square = document.querySelector(`[data-x="${j}"][data-y="${i}"]`);
+                square = document.querySelector(`[data-x="${j}"][data-y="${i}"]`);
                 square.classList.add("black");
             }    
         } 
