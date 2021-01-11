@@ -15,16 +15,17 @@ let allProducts = [{name: "молоко", price: 38},
 
 // Наполнение корзины в автомате____
 
-// allProducts.forEach(function(el,ind) 
-// {
-//     if (ind % 2 === 0){
-//         el.count = 1;
-//         basket.putProduct(el, el.count);
-//     }
-//     else {
-//         el.count = 2;
-//         basket.putProduct(el, el.count);
-//     }
-// });
-
+allProducts.forEach(function(el,ind) 
+{
+    if (ind % 2 === 0){
+        el.count = 1;
+        basket.putProduct(el, el.count);
+    }
+    else {
+        el.count = 2;
+        basket.putProduct(el, el.count);
+    }
+});
+let all_count = basket.countTotalNumber();
+let all_price = basket.countTotalPrice();
 renderer.renderProduct(basket.goodList);

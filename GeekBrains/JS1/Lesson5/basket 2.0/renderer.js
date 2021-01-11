@@ -8,6 +8,9 @@ let renderer = {
                 div.innerHTML = `${prod.name} <br>Цена: ${prod.price}`;
                 this.div1.appendChild(div);
             }
+            var p = document.createElement("p");
+            p.innerHTML = `"В корзине: ${all_count} товаров на сумму ${all_price} рублей"`;
+            this.div1.appendChild(p);
         }
         else{
             var p = document.createElement("p");

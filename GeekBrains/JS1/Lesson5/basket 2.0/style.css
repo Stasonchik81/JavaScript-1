@@ -23,6 +23,7 @@ html{
 }
 .main_div p {
     font-size: 14px;
+    color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     clear: both;
 }
