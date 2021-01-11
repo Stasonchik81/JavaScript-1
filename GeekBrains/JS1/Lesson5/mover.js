@@ -27,7 +27,8 @@ let mover = {
     },
 
     canPlayerMakeStep(newPosition){
-        return renderer.getSquare(newPosition) !== null;
+
+        return renderer.getSquare(newPosition) !== null && renderer.getSquare(newPosition).className !== 'black';
     },
 
     getNewPosition(event){

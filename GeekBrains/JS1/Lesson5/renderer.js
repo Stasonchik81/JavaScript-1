@@ -3,11 +3,7 @@ let renderer = {
         let result = this.generateBoard();
         document.body.insertAdjacentHTML('afterbegin', result);
         this.renderUserPosition(player);
-        let i=0;
-        do {
-            this.renderUnableSquare();
-            i++;
-        }while(i<5)
+        this.renderUnableSquares(8);
         
         
         
@@ -37,16 +33,21 @@ let renderer = {
         document.querySelector('.user').classList.remove('user');
     },
      
-    renderUnableSquare(){
-        let square = this.getUnableSquare();
-        square.classList.add('black');
+    renderUnableSquares(count){
+        let i=0;
+        do {
+            let square = this.getUnableSquare();
+            square.classList.add('black');
+            i++;
+        }while(i<count)
+        
     },
     getUnableSquare(){
-        let unableSquare = {
-            x:getRandomInRange(1, 9),
-            y:getRandomInRange(1, 9),
-        };
-        return document.querySelector(`[data-x="${unableSquare.x}"][data-y="${unableSquare.y}"]`);
+        let square = {
+            x: getRandomInRange(1, 9),
+            y: getRandomInRange(1, 9),
+        }
+        return document.querySelector(`[data-x="${square.x}"][data-y="${square.y}"]`);
     }
     
 }
