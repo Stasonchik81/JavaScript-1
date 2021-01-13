@@ -1,0 +1,41 @@
+html{
+    background-color: #cfcfcf;
+    color: indigo;
+    text-align: center;
+    vertical-align: text-top;
+
+}
+.main_div, .basket_div{
+    width: inherit;
+    height: 250px;
+    background-color: lightblue;
+}
+.product{
+    width: 100px;
+    height: 100px;
+    color: black;
+    font-size: 14px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+    background-color: #fff;
+    margin-right: 10px;
+    padding: 10px auto;
+    border: 2px solid rgb(50, 56, 47);
+    float: left;
+}
+.main_div p {
+    font-size: 14px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    clear: both;
+}
+button{
+    width: 45px;
+    height: 20px;
+    margin: auto;
+    text-align: center;
+    font-size: 12px;
+    background-color: coral;
+}
+button:hover{
+    background-color: rgb(209, 166, 150);
+}
