@@ -17,33 +17,32 @@ console.log(a[0][0]);
 console.log(b[0][0]);
 */
 // Задание №2
-
+/*
 var basket = new Array();
-function Product(name, price, count) {
+function Product(name, price) {
     this.name = name;
     this.price = price;
-    this.count = count;
   }
 for (let i = 0; i<3; i++){
-    let product = new Product(prompt("Введите название прдукта"), +prompt("Введите цену"), +prompt("Введите количество"));
+    let product = new Product(prompt("Введите название прдукта"), +prompt("Введите цену"));
     basket.push(product);
 }
 console.log(countBasketPrice(basket));
 function countBasketPrice(basket){
     let totalPrice = 0;
     basket.forEach(function(el){
-        totalPrice += el.price * el.count;
+        totalPrice += el.price;
      });
      return totalPrice;
 }
-
+*/
 // Задание №3
 /*
 for(let i = 0; i<=9; console.log(i), i++){ 
 }
 */
 // Задание №4
-
+/*
 function repeat (myString){
     for (i = 1; i<=20; i++){
         console.log(myString.repeat(i));
@@ -52,5 +51,5 @@ function repeat (myString){
 let myString = '*';
 repeat(myString);
 
-
+*/
  

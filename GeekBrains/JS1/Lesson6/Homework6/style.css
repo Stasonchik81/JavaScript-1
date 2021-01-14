@@ -1,0 +1,11 @@
+p{
+    line-height: 15px;
+    margin: 5px auto;
+}
+.invalid{
+    color: red;
+    border: solid red;
+}
+span{
+    color: red;
+}

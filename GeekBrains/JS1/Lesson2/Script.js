@@ -21,7 +21,7 @@ let a = 2;
 let x = 1 + ( a *= 2 );
 console.log(x);
 */
-// Задание №3
+// Зфдание №3
 /*let a = +prompt("Введите первое число", "любое целое число");
 let b = +prompt("Введите второе число", "любое целое число");
 if (a >= 0 && b >= 0){
@@ -74,7 +74,7 @@ function mathOperation(arg1, arg2, oper){
         default: alert("Incorrect arguments or function");
     }
 }*/
-// Задание №6 (Функция возведения числа в степень)
+// Задание №6 (Функция фозведения числа в степень)
 let a = +prompt("Введите число", "2");
 let b = +prompt("Введите степень", "2");
 // цикл do - while
