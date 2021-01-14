@@ -12,15 +12,13 @@ let ticTacToe = {
         for(let row=0; row<this.size; row++){
             const tr = document.createElement('tr');
             this.gameTableElement.appendChild(tr);
-            let mapRow = [];
+            this.mapValue[row] = new Array(this.size).fill('');
             for(let col=0; col<this.size; col++){
                 const td = document.createElement('td');
                 td.dataset.row = row.toString();
                 td.dataset.col = col.toString();
                 tr.appendChild(td);
-                mapRow.push('');
             }
-            this.mapValue.push(mapRow);
         }
     },
 
@@ -66,55 +64,29 @@ let ticTacToe = {
         // this.isLineWon({x:0, y:0}, {x:1, y:1}, {x:2, y:2});
 
         // Проверка в цикле
-        let value = [];
-        let stringZ = '';
-        let stringG = '';
-        for(let x=0; x<this.size; x++){
-            stringZ +=this.mapValue[x][x];
-            stringG += this.mapValue[x][this.size-1 - x];
-        }
-        value.push(stringZ);
-        value.push(stringG);
-        for(let x=0; x<this.size; x++){
-            let stringX = '';
-            let stringY = ''; 
-            for(let y = 0; y<this.size; y++){
-                stringX += this.mapValue[x][y];
-                stringY += this.mapValue[y][x];
+        let rows = new Array(this.size).fill('');
+        let cols = new Array(this.size).fill('');
+        let cross = new Array(2).fill('');
+        for(let i=0; i<this.size; i++){
+            cross[0] +=this.mapValue[i][i];
+            cross[1] += this.mapValue[this.size-1 - i][i];
+            for(let j = 0; j<this.size; j++){
+                rows[i] += this.mapValue[i][j];
+                cols[i] += this.mapValue[j][i];
             }
-            value.push(stringX);
-            value.push(stringY);
         }
-        
+        return rows.some(this.isLineWon)||cols.some(this.isLineWon)||cross.some(this.isLineWon);
+    },
 
-        for(let el = 0; el<value.length; el++){
-            if (this.isLineWon(el, value)){
-                return true;
-            }
-            
-            
-    
-
+    isLineWon(str){ 
+        let winX = '';
+        let winO = '';
+        for (let i=0; i<ticTacToe.size; i++){
+            winX += 'X';
+            winO += 'O';
         }
-        
-        // if(stringX === 'XXX' || stringX === 'OOO')
-        //     return true;
-
+        return winX === str || winO === str;
     },
-    isLineWon(el, array){ 
-        return array[el] === this.setLine(this.phase, this.size); // не работает!!! проверить
-    },
-    setLine(phase, size){
-        let lineX = '';
-        for(let i=1; i<=size; i++){
-            lineX += lineX;
-        } 
-    },
-
-    // isLineWon(a, b, c){
-    //     let value = this.mapValue[a.x][a.y]+this.mapValue[b.x][b.y]+this.mapValue[c.x][c.y];
-    //     return value === 'XXX' || value === 'OOO';
-    // },
 
     isStatusPlaying(status){
         return status === "playing";
