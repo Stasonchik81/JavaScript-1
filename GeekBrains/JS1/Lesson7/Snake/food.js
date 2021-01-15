@@ -1,3 +1,3 @@
 let food = {
-    
+    body: null,
 }

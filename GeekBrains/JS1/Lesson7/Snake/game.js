@@ -1,7 +1,11 @@
 let game = {
-    snake, food, settings,
+    snake, 
+    food, 
+    settings,
+    //renderer,
     init(userSettings = {}){
         Object.assign(settings, userSettings);
+        renderer.renderMap(settings.rowsCount, settings.colsCount);
     },
 }
 window.onload = function (){
