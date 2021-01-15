@@ -1,6 +1,20 @@
 let snake = {
     body: null,
     direction: null,
-    setDirection(){
+    
+    init(startPoint, direction){
+        this.body = [startPoint];
+        this.direction = direction;
     },
+    makeStep(){
+
+    },
+
+    setDirection(direction){
+        this.direction = direction;
+    },
+    eat(){
+
+    }
+
 }
