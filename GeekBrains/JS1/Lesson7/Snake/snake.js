@@ -11,6 +11,10 @@ let snake = {
         this.body.pop();
     },
 
+    isBodyPoint(point){
+        return this.body.some(snakePoint => snakePoint.x === point.x && snakePoint.y === point.y);
+    },
+
     getNextStepHeadPoint(){
         let firstPoint = this.body[0];
         switch(this.direction){
