@@ -2,14 +2,63 @@ let game = {
     snake, 
     food, 
     settings,
-    //renderer,
+    renderer,
+    ticInterval: null,
     init(userSettings = {}){
         Object.assign(settings, userSettings); // вводим пользовательские установки для игры
         renderer.renderMap(settings.rowsCount, settings.colsCount); // отрисовываем карту
+        this.setEventHandlers();
         snake.init(this.getStartSnakePoint(), 'up'); // определяем начальную точку для змеи и направление
         this.food.setFoodCoordinates(this.getRandomCoordinates()); // назначаем координаты еды как random
         renderer.render(this.snake.body, this.food.getFoodCoordinates()); // отрисовываем змею и еду
     },
+
+    setEventHandlers(){
+        document.getElementById('playButton').onclick = function(){
+            game.playClickHendler();
+        }
+        document.addEventListener('keydown', (event) => this.keyDownHendler(event))
+    },
+    
+    keyDownHendler(event){
+        let direction = this.getDirectionByCode(event.code);
+        snake.setDirection(direction);
+    },
+
+    getDirectionByCode(code){
+        switch(code){
+            case 'ArrowUp':
+            case 'KeyW':{
+                return 'up'; 
+            }
+            case 'ArrowDown':
+            case 'KeyS':{
+                return 'down'; 
+            }
+            case 'ArrowLeft':
+            case 'KeyA':{
+                return 'left'; 
+            }
+            case 'ArrowRight':
+            case 'KeyD':{
+                return 'right'; 
+            }
+        }
+    },
+
+    playClickHendler(){
+        this.play();
+    },
+    
+    play(){
+        this.ticInterval = setInterval(() => game.tickHandler(), 1000/settings.speed);
+    },
+
+    tickHandler(){
+        snake.makeStep();
+        renderer.render(this.snake.body, this.food.getFoodCoordinates());
+    },
+
     // получение начальной точки для змеи
     getStartSnakePoint(){
         return{
