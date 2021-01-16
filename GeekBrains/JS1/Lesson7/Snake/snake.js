@@ -24,6 +24,12 @@ let snake = {
                 return{x: firstPoint.x + 1, y: firstPoint.y}
         }
     },
+    incrementBody(){
+        let lastPointBodyIdx = snake.body.length - 1;
+        let lastPointBody = snake.body[lastPointBodyIdx];
+        let lastPointBodyClone = Object.assign({}, lastPointBody);
+        this.body.push(lastPointBodyClone);
+    },
 
     setDirection(direction){
         this.direction = direction;

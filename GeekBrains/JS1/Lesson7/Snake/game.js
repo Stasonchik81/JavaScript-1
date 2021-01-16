@@ -19,7 +19,7 @@ let game = {
         }
         document.addEventListener('keydown', (event) => this.keyDownHendler(event))
     },
-    
+
     keyDownHendler(event){
         let direction = this.getDirectionByCode(event.code);
         snake.setDirection(direction);
@@ -55,6 +55,10 @@ let game = {
     },
 
     tickHandler(){
+        if(this.food.isFoodPoint(this.snake.getNextStepHeadPoint())){ // проверка встречи с едой
+            snake.incrementBody();                                     // увеличение тела змейки
+            this.food.setFoodCoordinates(this.getRandomCoordinates());
+        }
         snake.makeStep();
         renderer.render(this.snake.body, this.food.getFoodCoordinates());
     },

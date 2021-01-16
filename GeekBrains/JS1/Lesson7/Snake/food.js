@@ -7,5 +7,8 @@ let food = {
     },
     getFoodCoordinates(){
         return {x: this.x, y: this.y}
+    },
+    isFoodPoint(point){
+        return point.x === this.x && point.y === this.y;
     }
 }
