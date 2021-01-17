@@ -25,5 +25,10 @@ let renderer = {
             this.cells[`x${point.x}_y${point.y}`].classList.add(index === 0 ? "snakeHead" : "snakeBody");
         });
         this.cells[`x${foodPoint.x}_y${foodPoint.y}`].className = 'food';
+    },
+
+    renderCounter(){
+        let div = document.getElementById('counter');
+        div.innerHTML = '<p>Счёт игры: <span></span>';
     }
 }

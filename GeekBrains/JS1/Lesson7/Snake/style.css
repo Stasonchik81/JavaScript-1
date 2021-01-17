@@ -3,6 +3,11 @@
     padding: 0;
     background: #2e353d;
 }
+#counter{
+    font-size: 25px;
+    color: #f79067;
+    text-align: center;
+}
 
 .menuButton {
     width: 150px;
